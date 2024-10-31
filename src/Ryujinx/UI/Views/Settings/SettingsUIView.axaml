@@ -39,6 +39,9 @@
                     <CheckBox IsChecked="{Binding RememberWindowState}">
                         <TextBlock Text="{locale:Locale SettingsTabGeneralRememberWindowState}" />
                     </CheckBox>
+                    <CheckBox IsChecked="{Binding ShowTitleBar}" Name="ShowTitleBarBox">
+                        <TextBlock Text="{locale:Locale SettingsTabGeneralShowTitleBar}" />
+                    </CheckBox>
                     <StackPanel Margin="0, 15, 0, 0" Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center"
                                    Text="{locale:Locale SettingsTabGeneralHideCursor}"
@@ -129,7 +132,10 @@
                     </Grid>
                 </StackPanel>
                 <Separator Height="1" />
-                <TextBlock Classes="h1" Text="{locale:Locale SettingsTabGeneralAutoloadDirectories}" />
+               <StackPanel Orientation="Vertical" Spacing="5">
+                    <TextBlock Classes="h1" Text="{locale:Locale SettingsTabGeneralAutoloadDirectories}" />
+                    <TextBlock Foreground="{DynamicResource SecondaryTextColor}" Text="{locale:Locale SettingsTabGeneralAutoloadNote}" />
+                </StackPanel>
                 <StackPanel
                     Margin="10,0,0,0"
                     HorizontalAlignment="Stretch"
@@ -137,7 +143,7 @@
                     Spacing="10">
                     <ListBox
                         Name="AutoloadDirsList"
-                        MinHeight="120"
+                        MinHeight="100"
                         ItemsSource="{Binding AutoloadDirectories}">
                         <ListBox.Styles>
                             <Style Selector="ListBoxItem">
